@@ -1,0 +1,27 @@
+.book-img {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-oferta {
+    white-space: nowrap;
+    position: absolute;
+    padding: 5px 50px;
+    min-width: 300px;
+    transform: rotate(-45deg) translate(-40%, 0);
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+    top: -40px;
+    left: -7px;
+    box-sizing: border-box;
+    background: green;
+}
+
+.card-text {
+    overflow: hidden;
+    height: 120px;
+}

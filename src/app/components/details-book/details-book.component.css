@@ -1,0 +1,52 @@
+p.card-text {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.book-cover img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    text-align: center;
+}
+
+.book-title {
+    color: #007bff;
+    margin-top: 10px;
+}
+
+p.book-description {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.container-tags {
+    display: inline-block;
+}
+
+.book-img {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-oferta {
+    white-space: nowrap;
+    position: absolute;
+    padding: 5px 50px;
+    min-width: 300px;
+    transform: rotate(-45deg) translate(-40%, 0);
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+    top: -60px;
+    left: -30px;
+    box-sizing: border-box;
+    background: green;
+}

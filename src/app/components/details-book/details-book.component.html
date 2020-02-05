@@ -1,0 +1,36 @@
+<section id="book" class="mt-5">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 mx-auto">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mx-auto">
+                        <div class="book-img book-cover">
+                            <div *ngIf="book.oferta == '1'" class="badge-oferta">
+                                OFERTA
+                            </div>
+                            <div>
+                                <img src="{{book.portada}}" alt="{{book.titulo}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 mx-auto parent">
+                        <h3 class="book-title">{{book.titulo}}</h3>
+                        <hr>
+                        <p class="book-description">{{book.descripcion}}</p>
+                        <div class="buy-book">
+                            <div class="container-tags">
+                                <p class="badge badge-info mr-1">
+                                    U$D {{book.precio}}
+                                </p>
+                                <p class="badge badge-info">
+                                    {{book.idioma}}
+                                </p>
+                            </div>
+                        </div>
+                        <a href="{{book.link_amazon}}" target="_blank" class="btn btn-primary btn-block">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

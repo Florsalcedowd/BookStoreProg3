@@ -1,0 +1,22 @@
+.form-control.login-user {
+    border: 0 solid #fff !important;
+}
+
+.btn-social {
+    position: relative;
+    text-align: center;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+    margin-right: 10px;
+}
+
+.btn-google {
+    background-color: #dd4b39;
+}
