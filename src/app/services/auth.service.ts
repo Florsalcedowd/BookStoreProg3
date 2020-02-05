@@ -13,6 +13,7 @@ export class AuthService {
 
   constructor( private afsAuth: AngularFireAuth, private afs: AngularFirestore) { }
 
+  /* Registra un usario con email y contraseña */
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
       this.afsAuth.auth.createUserWithEmailAndPassword(email, pass)
@@ -24,6 +25,7 @@ export class AuthService {
     });
   }
 
+  /* Login del usario con email y contraseña */
   loginEmailUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
       this.afsAuth.auth.signInWithEmailAndPassword(email, pass)
@@ -44,10 +46,12 @@ export class AuthService {
     return this.afsAuth.auth.signOut();
   }
 
+  /* Averigua si hay un usuario conectado o no */
   isAuth() {
     return this.afsAuth.authState.pipe(map( auth => auth));
   }
 
+  /* Le asigna el rol de editor al usuario y hace un merge con el registro de la base de datos*/
   private updateUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const data: UserInterface = {
@@ -61,6 +65,7 @@ export class AuthService {
     return userRef.set(data, { merge: true});
   }
 
+  /* Permite saber si el usario es admin */
   isUserAdmin(userUid) {
     return this.afs.doc<UserInterface>(`users/${userUid}`).valueChanges();
   }

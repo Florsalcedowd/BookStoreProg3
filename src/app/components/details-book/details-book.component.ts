@@ -29,6 +29,7 @@ export class DetailsBookComponent implements OnInit {
     this.getDetails(idBook);
   }
 
+  /* Trae de Firestore el libro seleccionado a través de su id usando el método getOneBook() del DataApiService */
   getDetails(idBook: string): void {
     this.dataApi.getOneBook(idBook).subscribe( book => {
       this.book = book;

@@ -14,9 +14,9 @@ export class HomeComponent implements OnInit {
   public books = [];
   public book = '';
 
+  /* Al iniciar el componente trae la lista de libros a través del método getAllBooks() del DataApiService */
   ngOnInit() {
     this.dataApi.getAllBooks().subscribe( books => {
-      console.log('BOOKS', books);
       this.books = books;
     });
   }

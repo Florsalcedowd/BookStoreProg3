@@ -11,7 +11,10 @@ export class ModalComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
 
+  /* Permite comunicar componentes, crea una referencia hacia el evento (click) que se encuentra en el btnClose del html */
   @ViewChild('btnClose',  { static: true }) btnClose: ElementRef;
+
+  /* Recibe el userUid que viene desde list-books */
   @Input() userUid: string;
 
 
@@ -28,6 +31,7 @@ export class ModalComponent implements OnInit {
       this.dataApi.updateBook(bookForm.value);
     }
     bookForm.resetForm();
+    /* Cierra la ventana modal */
     this.btnClose.nativeElement.click();
   }
 

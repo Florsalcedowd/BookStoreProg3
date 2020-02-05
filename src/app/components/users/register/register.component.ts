@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService, private storage: AngularFireStorage) { }
 
+  /* Permite realizar el imput de la imagen desde ts */
   @ViewChild('imageUser', { static: true }) inputImageUser: ElementRef;
 
   public email: string = '';
@@ -38,12 +39,14 @@ export class RegisterComponent implements OnInit {
     task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
   }
 
+  /* Metodo que crea un usario con email y contraseña */
   onAddUser() {
     this.authService.registerUser(this.email, this.password)
     .then((res) => {
       this.authService.isAuth().subscribe( user => {
         if (user) {
           console.log('userActual', user);
+          /* Incrustra la imagen del Storage como imagen de perfil del usuario a través de un update */
           user.updateProfile({
             displayName: '',
             photoURL: this.inputImageUser.nativeElement.value
@@ -58,6 +61,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  /* Loggea al usuario a través de Google */
   onLoginGoogle(): void {
     this.authService.loginGoogleUser()
     .then((res) => {
@@ -68,6 +72,7 @@ export class RegisterComponent implements OnInit {
     });;
   }
 
+  /* Loggea al usuario a través de Facebook */
   onLoginFacebook(): void {
     this.authService.loginFacebookUser()
       .then( (res) => {
@@ -78,6 +83,7 @@ export class RegisterComponent implements OnInit {
       });
   }
 
+  /* Redirecciona a la lista de libros */
   onLoginRedirect(): void {
     this.router.navigate(['admin/list-books']);
   }

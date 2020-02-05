@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  /* Inicio de sesión con correo y contraseña */
   onLogin(): void {
     this.authService.loginEmailUser(this.email, this.password)
     .then((res) => {
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /* Inicio de sesión con google */
   onLoginGoogle(): void {
     this.authService.loginGoogleUser()
     .then((res) => {
@@ -45,6 +47,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /* Inicio de sesión con facebook */
   onLoginFacebook(): void {
     this.authService.loginFacebookUser()
       .then( (res) => {
@@ -56,14 +59,17 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  /* Cierra la sesión */
   onLogout() {
     this.authService.logoutUser();
   }
 
+  /* Redirecciona al usuario a la lista de libros */
   onLoginRedirect(): void {
     this.router.navigate(['admin/list-books']);
   }
 
+  /* Reinicia los valores al cerrarte el alerta de errores */
   onCloseAlert() {
     this.isError = false;
     this.msgError = null;

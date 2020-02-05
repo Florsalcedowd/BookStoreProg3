@@ -22,20 +22,20 @@ export class ProfileComponent implements OnInit {
 
   public providerId: string = 'null';
 
+  /* Al iniciar el componente trae los datos del usuario */
   ngOnInit() {
+    this.getCurrentUser();
     this.authService.isAuth().subscribe( user => {
       if (user) {
         this.user.name = user.displayName;
         this.user.email = user.email;
         this.user.photoUrl = user.photoURL;
         this.providerId = user.providerData[0].providerId;
-        console.log('USER', user);
-        console.log('PROVIDER', this.providerId);
       }
     });
-    this.getCurrentUser();
   }
 
+  /* Obtiene el rol del usuario actual */
   getCurrentUser() {
     this.authService.isAuth().subscribe(auth => {
       if (auth) {

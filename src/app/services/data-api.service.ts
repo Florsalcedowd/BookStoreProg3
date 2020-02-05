@@ -3,7 +3,6 @@ import { BookInterface } from './../models/book';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
-import { ok } from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +19,7 @@ export class DataApiService {
     id: null
   };
 
+  /* Trae todos los libros del database */
   getAllBooks() {
     this.booksCollection = this.afs.collection<BookInterface>('books');
     return this.books = this.booksCollection.snapshotChanges().pipe(map( changes => {
@@ -31,6 +31,7 @@ export class DataApiService {
     }));
   }
 
+  /* Trae todos los libros en oferta del database */
   getAllBooksOffers() {
     this.booksCollection = this.afs.collection('books', ref => ref.where('oferta', '==', '1'));
     return this.books = this.booksCollection.snapshotChanges()
@@ -43,6 +44,7 @@ export class DataApiService {
       }));
   }
 
+  /* Trae un libro a partir de su id */
   getOneBook(idBook: string) {
     this.bookDoc = this.afs.doc<BookInterface>(`books/${idBook}`);
     return this.book = this.bookDoc.snapshotChanges().pipe(map( action => {
@@ -56,16 +58,19 @@ export class DataApiService {
     }));
   }
 
+  /* Agrega un libro a la database */
   addBook(book: BookInterface): void {
     this.booksCollection.add(book);
   }
 
+  /* Actualiza un libro del database */
   updateBook(book: BookInterface) {
     const idBook = book.id;
     this.bookDoc = this.afs.doc<BookInterface>(`books/${idBook}`);
     this.bookDoc.update(book);
   }
 
+  /* Elimina un libro del database */
   deleteBook(idBook: string) {
     this.bookDoc = this.afs.doc<BookInterface>(`books/${idBook}`);
     this.bookDoc.delete().then( data => {

@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
     this.getCurrentUser();
   }
 
+  /* A través del método isAuth() de AuthService se averigua si hay un usuario loggeado o no */
   getCurrentUser() {
     this.AuthService.isAuth().subscribe( auth => {
       if (auth) {
@@ -30,6 +31,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  /* Cierra la sesión del usuario */
   onLogout() {
     this.afsAuth.auth.signOut();
   }

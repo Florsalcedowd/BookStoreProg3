@@ -15,10 +15,9 @@ export class OffersComponent implements OnInit {
 
   ngOnInit() {
     this.getOffers();
-    console.log('OFERTAS', this.books);
   }
 
-
+  /* Obtiene los libros en oferta con el método getAllBooksOffers() del DataApiService */
   getOffers() {
     this.dataApi.getAllBooksOffers().subscribe(offers => this.books = offers);
   }

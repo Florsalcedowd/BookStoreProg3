@@ -11,6 +11,7 @@ import { take, map, tap } from 'rxjs/operators';
 export class AuthGuard implements CanActivate {
   constructor(private afsAuth: AngularFireAuth, private router: Router) {}
 
+  /* Cuando no hay un usario loggeado, redirecciona a la página de login */
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
