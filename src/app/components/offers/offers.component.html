@@ -9,7 +9,7 @@
                                 <img class="img-fluid" src="{{book.portada}}" alt="{{book.titulo}}">
                             </p>
                             <h4 routerLink="/book/{{book.id}}" class="card-title">{{book.titulo}}</h4>
-                            <h6 class="autor">de {{book.autor}}</h6>
+
                             <div class="card-text">
                                 {{book.descripcion | slice:0:120}}...
                                 <a routerLink="/book/{{book.id}}"> seguir leyendo</a>
