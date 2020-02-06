@@ -20,11 +20,6 @@ export class ListBooksComponent implements OnInit {
   public isAdmin: any = null;
   public userUid: string = null;
 
-  /* Contiene el id del libro seleccionado en caso de actualización */
-  public bookSelected: BookInterface = {
-    id: null
-  };
-
   ngOnInit() {
     this.getCurrentUser();
     this.getListBooks();
@@ -59,8 +54,8 @@ export class ListBooksComponent implements OnInit {
 
   /* Trae el libro seleccionado del database*/
   onPreUpdateBook(book: BookInterface) {
+    console.log(book);
     this.dataApi.selectedBook = Object.assign({}, book);
-    this.bookSelected = this.dataApi.selectedBook;
   }
 
 }

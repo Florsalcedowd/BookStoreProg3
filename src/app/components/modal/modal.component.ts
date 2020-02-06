@@ -17,8 +17,6 @@ export class ModalComponent implements OnInit {
   /* Recibe el userUid que viene desde list-books */
   @Input() userUid: string;
 
-  /* Recibe el bookSelected que viene desde list-book */
-  @Input() bookSelected: BookInterface;
 
   ngOnInit() {
   }

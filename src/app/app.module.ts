@@ -44,7 +44,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule,
+    AngularFireStorageModule
   ],
   providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]
