@@ -17,6 +17,8 @@ export class ModalComponent implements OnInit {
   /* Recibe el userUid que viene desde list-books */
   @Input() userUid: string;
 
+  /* Recibe el bookSelected que viene desde list-book */
+  @Input() bookSelected: BookInterface;
 
   ngOnInit() {
   }
@@ -33,6 +35,10 @@ export class ModalComponent implements OnInit {
     bookForm.resetForm();
     /* Cierra la ventana modal */
     this.btnClose.nativeElement.click();
+  }
+
+  onClose(bookForm: NgForm): void {
+    bookForm.resetForm();
   }
 
 }
