@@ -45,7 +45,6 @@ export class RegisterComponent implements OnInit {
     .then((res) => {
       this.authService.isAuth().subscribe( user => {
         if (user) {
-          console.log('userActual', user);
           /* Incrustra la imagen del Storage como imagen de perfil del usuario a través de un update */
           user.updateProfile({
             displayName: '',
@@ -69,7 +68,7 @@ export class RegisterComponent implements OnInit {
     }).catch(err => {
       this.isError = true;
       this.msgError = err.message;
-    });;
+    });
   }
 
   /* Loggea al usuario a través de Facebook */
