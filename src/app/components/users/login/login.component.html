@@ -9,7 +9,7 @@
                                 <h1 class="h3 mb-3 font-weight-normal">Login</h1>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="isError">
                                     {{msgError}}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="onCloseAlert()">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>

@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
   onLogin(): void {
     this.authService.loginEmailUser(this.email, this.password)
     .then((res) => {
-      this.onLoginRedirect();
       this.isError = false;
+      this.onLoginRedirect();
     }).catch( err => {
       this.isError = true;
       this.msgError = err.message;
@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
   onLoginGoogle(): void {
     this.authService.loginGoogleUser()
     .then((res) => {
-      this.onLoginRedirect();
       this.isError = false;
+      this.onLoginRedirect();
     }).catch ( err => {
       this.isError = true;
       this.msgError = err.message;
@@ -51,8 +51,8 @@ export class LoginComponent implements OnInit {
   onLoginFacebook(): void {
     this.authService.loginFacebookUser()
       .then( (res) => {
-        this.onLoginRedirect();
         this.isError = false;
+        this.onLoginRedirect();
       }).catch( err => {
         this.isError = true;
         this.msgError = err.message;

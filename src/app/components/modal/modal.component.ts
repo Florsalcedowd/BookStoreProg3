@@ -20,25 +20,36 @@ export class ModalComponent implements OnInit {
   /* Recibe el bookSelected que viene desde list-book */
   @Input() bookSelected: BookInterface;
 
+  public isError = false;
+
   ngOnInit() {
   }
 
   onSaveBook(bookForm: NgForm): void {
-    if (bookForm.value.id == null) {
-      // Nuevo libro
-      bookForm.value.userUid = this.userUid;
-      this.dataApi.addBook(bookForm.value);
+    // Primero valida que el formulario este lleno
+    if (bookForm.invalid) {
+      this.isError = true;
     } else {
-      // Actualización
-      this.dataApi.updateBook(bookForm.value);
+      if (bookForm.value.id == null) {
+        // Nuevo libro
+        bookForm.value.userUid = this.userUid;
+        this.dataApi.addBook(bookForm.value);
+      } else {
+        // Actualización
+        this.dataApi.updateBook(bookForm.value);
+      }
+      bookForm.resetForm();
+      /* Cierra la ventana modal */
+      this.btnClose.nativeElement.click();
     }
-    bookForm.resetForm();
-    /* Cierra la ventana modal */
-    this.btnClose.nativeElement.click();
   }
 
   onClose(bookForm: NgForm): void {
     bookForm.resetForm();
+  }
+
+  onCloseAlert() {
+    this.isError = false;
   }
 
 }

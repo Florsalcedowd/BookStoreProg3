@@ -15,16 +15,16 @@
                     <input type="hidden" name="userUid" [value]="userUid">
                     <div class="form-group">
                         <label for="titulo">Título:</label>
-                        <input type="text" class="form-control" name="titulo" [(ngModel)]="this.bookSelected.titulo">
+                        <input type="text" class="form-control" name="titulo" [(ngModel)]="this.bookSelected.titulo" required>
                     </div>
                     <div class="form-row mt-0">
                         <div class="form-group col-md-6">
                             <label for="autor">Autor</label>
-                            <input type="text" class="form-control" name="autor" [(ngModel)]="this.bookSelected.autor">
+                            <input type="text" class="form-control" name="autor" [(ngModel)]="this.bookSelected.autor" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="idioma">Idioma:</label>
-                            <select name="idioma" class="form-control" [(ngModel)]="this.bookSelected.idioma">
+                            <select name="idioma" class="form-control" [(ngModel)]="this.bookSelected.idioma" required>
                             <option value="Inglés">Inglés</option>
                             <option value="Español">Español</option>
                             <option value="Portugués">Portugués</option>
@@ -35,16 +35,16 @@
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripcion:</label>
-                        <textarea class="form-control" name="descripcion" [(ngModel)]="this.bookSelected.descripcion"></textarea>
+                        <textarea class="form-control" name="descripcion" [(ngModel)]="this.bookSelected.descripcion" required></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="precio">Precio</label>
-                            <input type="text" class="form-control" name="precio" placeholder="0,00" [(ngModel)]="this.bookSelected.precio">
+                            <input type="text" class="form-control" name="precio" placeholder="0,00" [(ngModel)]="this.bookSelected.precio" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="oferta">Oferta:</label>
-                            <select name="oferta" class="form-control" [(ngModel)]="this.bookSelected.oferta">
+                            <select name="oferta" class="form-control" [(ngModel)]="this.bookSelected.oferta" required>
                           <option value="1">SI</option>
                           <option value="0">NO</option>
                         </select>
@@ -53,12 +53,18 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="portada">Portada</label>
-                            <input type="text" class="form-control" name="portada" placeholder="www.example.com/portada.jpg" [(ngModel)]="this.bookSelected.portada">
+                            <input type="text" class="form-control" name="portada" placeholder="www.example.com/portada.jpg" [(ngModel)]="this.bookSelected.portada" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="link_amazon">Link Amazon</label>
-                            <input type="text" class="form-control" name="link_amazon" placeholder="www.amazon.com/book" [(ngModel)]="this.bookSelected.link_amazon">
+                            <input type="text" class="form-control" name="link_amazon" placeholder="www.amazon.com/book" [(ngModel)]="this.bookSelected.link_amazon" required>
                         </div>
+                    </div>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="isError">
+                        <p class="alertFont">¡Debes completar todos los campos!</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="onCloseAlert()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose (click)="onClose(formBook)">Cerrar</button>
