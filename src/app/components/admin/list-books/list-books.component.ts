@@ -20,6 +20,8 @@ export class ListBooksComponent implements OnInit {
   public isAdmin: any = null;
   public userUid: string = null;
 
+  actualPage = 1;
+
   /* Contiene el id del libro seleccionado en caso de actualización */
   public bookSelected: BookInterface = {
     id: null

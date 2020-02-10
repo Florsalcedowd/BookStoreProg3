@@ -2,8 +2,16 @@
     display: inline;
 }
 
-.table-width {
-    max-width: 100%;
+.table-width table {
+    width: 100%;
+}
+
+.tableContainer {
+    min-height: 430px;
+}
+
+table td.titulo {
+    width: 300px;
 }
 
 .display-block {
