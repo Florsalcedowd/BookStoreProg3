@@ -51,6 +51,10 @@ export class ListBooksComponent implements OnInit {
     });
   }
 
+  getUserRegistres() {
+    this.books = this.books.filter( book => book.userUid === this.userUid);
+  }
+
   /* Elimina un libro a través del método deleteBook(id) del DataApiService */
   onDeleteBook(idBook: string) {
     const confirmacion = confirm('¿Estás seguro?');
